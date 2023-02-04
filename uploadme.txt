@@ -1,0 +1,74 @@
+<!-- guessNumber -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guessNumber</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Rubik+Bubbles&display=swap");
+
+    body {
+        background-color: rgba(0, 255, 255, 0.085);
+    }
+
+    h1 {
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 120px;
+        margin: auto;
+    }
+
+    .addMe {
+        color: rgb(59, 225, 33);
+        font-family: "Rubik Bubbles", cursive;
+        font-size: 50px;
+    }
+</style>
+
+<body id="body">
+    <h1>guessTheNumber</h1>
+    <hr>
+
+    <script>
+
+        // gameCode
+        let enter = -99, random = -88, flag = false; count = 0;
+
+        alert("Enter number between 1 to 50.");
+        count = 0;
+        while (enter != random && flag != true) {
+            enter = prompt("Enter the number.");
+            random = Math.floor(Math.random() * 51);
+            if (enter > random) {
+                alert("GREATER GUESS.");
+            }
+            else if (enter < random) {
+                alert("SMALLER GUESS.");
+            }
+            else if (enter == random) {
+                alert("WOW! YOU ARE RIGHT.");
+            }
+            count++;
+            if (count % 20 == 0) {
+                flag = confirm("Do you want to Quit?");
+            }
+        }
+
+        count = 100 - count;
+        // displaying result
+        let newH = document.createElement('h2');
+        body.append(newH);
+        let newText = document.createTextNode("Your Score is : " + count);
+        newH.append(newText);
+        newH.classList.add("addMe");
+
+    </script>
+</body>
+
+</html>
